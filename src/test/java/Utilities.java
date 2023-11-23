@@ -1,21 +1,20 @@
-package org.example;
-
 import io.restassured.path.json.JsonPath;
 
 public class Utilities {
-    public static JsonPath stringToJson(String response){
+    public static JsonPath stringToJson(String response) {
         return new JsonPath(response);
     }
-    public static String getValueFromJsonString(String response, String key){
+
+    public static String getValueFromJsonString(String response, String key) {
         JsonPath jsonPath = new JsonPath(response);
         return jsonPath.getString(key);
     }
 
-    public static String getValueFromJsonPath(JsonPath jsonPath, String key){
+    public static String getValueFromJsonPath(JsonPath jsonPath, String key) {
         return jsonPath.getString(key);
     }
 
-    public static String coursesJson(){
+    public static String coursesJson() {
         return "{\r\n" +
                 "  \"dashboard\": {\r\n" +
                 "    \"purchaseAmount\": 1162,\r\n" +
@@ -47,5 +46,14 @@ public class Utilities {
                 "    \r\n" +
                 "  ]\r\n" +
                 "}\r\n";
+    }
+
+    public static String addBook(String bookName, String aisle, String isbn) {
+        return "{\n" +
+                "    \"name\": \"" + bookName + "\",\n" +
+                "    \"isbn\": \"" + isbn + "\",\n" +
+                "    \"aisle\": \"" + aisle + "\",\n" +
+                "    \"author\": \"CD\"\n" +
+                "}";
     }
 }

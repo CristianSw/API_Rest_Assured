@@ -5,8 +5,9 @@ import org.testng.Assert;
 
 import java.util.ArrayList;
 
-import static org.example.Utilities.coursesJson;
-import static org.example.Utilities.stringToJson;
+import static org.example.UtilitiesMain.coursesJson;
+import static org.example.UtilitiesMain.stringToJson;
+
 
 public class NestedJsonParse {
     public static void main(String[] args) {

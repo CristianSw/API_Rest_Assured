@@ -1,11 +1,10 @@
 package org.example;
 
 import io.restassured.RestAssured;
-import io.restassured.path.json.JsonPath;
 import org.testng.Assert;
 
 import static io.restassured.RestAssured.*;
-import static org.example.Utilities.getValueFromJsonString;
+import static org.example.UtilitiesMain.getValueFromJsonString;
 import static org.hamcrest.Matchers.equalTo;
 
 public class Basics {
