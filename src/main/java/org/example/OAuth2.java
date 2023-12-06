@@ -1,5 +1,8 @@
 package org.example;
 
+import io.restassured.http.ContentType;
+import io.restassured.parsing.Parser;
+import org.example.pojo.GetCourses;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -45,10 +48,14 @@ public class OAuth2 {
 
         String accessToken = UtilitiesMain.getValueFromJsonString(getAuthTokenResponse,"access_token");
 
-        String getBookResponse = given()
+        GetCourses getBookResponse = given()
                 .queryParam("access_token", accessToken)
+                .expect().defaultParser(Parser.JSON)
                 .when().get("https://rahulshettyacademy.com/getCourse.php")
-                .then().log().all().assertThat().statusCode(200).extract().response().asString();
+                .as(GetCourses.class);
 //        System.out.println(getBookResponse);
+        System.out.println(getBookResponse.getExpertise());
+        System.out.println(getBookResponse.getInstructor());
+        System.out.println(getBookResponse.getLinkedIn());
     }
 }
